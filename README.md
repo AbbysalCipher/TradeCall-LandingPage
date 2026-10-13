@@ -38,6 +38,10 @@ In Retell's dashboard, open **Public Keys** and add both `localhost` (for local 
 
 The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
 
+## Motion and interactions
+
+The page includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift and highlight effects for cards and calls-to-action, an animated call waveform, and a softly pulsing demo visual. Motion is disabled or reduced for visitors whose device requests reduced motion.
+
 ## Image note
 
 The build environment could not resolve Google's Gemini API endpoint, so the page uses a generated HVAC rooftop visual as a fallback. No Gemini API key is stored in this project. Rotate the key that was shared in the chat before using it elsewhere.
