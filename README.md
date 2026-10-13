@@ -7,7 +7,7 @@ A responsive, one-page website for TradeCall Agency. It includes the missed-call
 Requirements: Node.js 18 or newer.
 
 1. Extract this folder.
-2. Keep `.env.local` in the project folder for local preview. It contains the Retell **public** key and existing voice agent ID; do not commit it to GitHub.
+2. For local voice-demo testing, copy `.env.example` to `.env.local` and fill in your Retell public key and agent ID. Keep `.env.local` private and do not upload it to GitHub or share it.
 3. In a terminal opened in this folder, run:
 
    ```bash
@@ -36,7 +36,7 @@ The project has no npm runtime dependencies. `npm run build` creates the deploym
 
 In Retell's dashboard, open **Public Keys** and add both `localhost` (for local testing) and the deployed Vercel domain to the allowed domains list. The widget may not load if a domain is missing. The embed uses Retell's official website widget script with the supplied voice agent and public key.
 
-The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance.
+The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
 
 ## Image note
 
