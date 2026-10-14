@@ -17,7 +17,7 @@ Requirements: Node.js 18 or newer.
 
 4. Open **http://localhost:3000**.
 
-The project has no npm runtime dependencies. `npm run build` creates the deployment-ready static output in `dist/`.
+The project has no npm runtime dependencies. `npm run build` creates the deployment-ready static output in `dist/`. The current light-mode art direction uses a translucent floating navigation bar, your supplied `logo.svg`, and a CSS-rendered 3D glass-form hero scene with slow movement and iridescent highlights. The current light-mode art direction uses a translucent floating navigation bar, your supplied `logo.svg`, and a CSS-rendered 3D glass-form hero scene with slow movement and iridescent highlights.
 
 ## Deploy free on Vercel without using the command line
 
@@ -38,10 +38,10 @@ In Retell's dashboard, open **Public Keys** and add both `localhost` (for local 
 
 The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
 
-## Motion and interactions
+## Visual design, motion and interactions
 
-The page includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift and highlight effects for cards and calls-to-action, an animated call waveform, and a softly pulsing demo visual. Motion is disabled or reduced for visitors whose device requests reduced motion.
+The page uses a bright, mostly white palette with black typography and cyan/lavender highlights. The navigation is a centered, translucent glass pill. The header and footer use the supplied `logo.svg`. The hero background is built from CSS 3D-style cubes, prisms, spheres, orbital rings, soft lighting, and slowly moving reflections; it does not depend on a remote animation library. The page also includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift effects, an animated call waveform, and a softly pulsing demo visual. Motion is reduced for visitors whose device requests reduced motion.
 
-## Image note
+## Asset and key note
 
-The build environment could not resolve Google's Gemini API endpoint, so the page uses a generated HVAC rooftop visual as a fallback. No Gemini API key is stored in this project. Rotate the key that was shared in the chat before using it elsewhere.
+The logo asset is copied from the supplied `logo.svg`. The hero 3D visual is CSS-rendered; the older HVAC rooftop photo remains in `public/images/` as a project asset but is no longer the hero centerpiece. No Gemini API key is stored in this project. Rotate the key that was shared in the chat before using it elsewhere.

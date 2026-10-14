@@ -66,8 +66,8 @@
     widgetScript.setAttribute('data-voice-agent-id', config.retellAgentId);
     widgetScript.setAttribute('data-title', 'TradeCall Receptionist');
     widgetScript.setAttribute('data-bot-name', 'TradeCall Receptionist');
-    widgetScript.setAttribute('data-theme-color', '#172531');
-    widgetScript.setAttribute('data-component-color', '#f4b942');
+    widgetScript.setAttribute('data-theme-color', '#ffffff');
+    widgetScript.setAttribute('data-component-color', '#22d3ee');
     widgetScript.setAttribute('data-fab-text', 'Talk to our receptionist');
     widgetScript.setAttribute('data-show-ai-popup', 'false');
     widgetScript.setAttribute('data-auto-open', 'false');
