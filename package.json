@@ -1,8 +1,8 @@
 {
-  "name": "tradecall-agency-website",
+  "name": "tradeline-agency-website",
   "version": "1.0.0",
   "private": true,
-  "description": "TradeCall Agency talking website for trades businesses",
+  "description": "TradeLine Agency talking website for trades businesses",
   "scripts": {
     "dev": "node server.js",
     "build": "node build.js",

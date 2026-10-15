@@ -64,8 +64,8 @@
     widgetScript.async = true;
     widgetScript.setAttribute('data-voice-public-key', config.retellPublicKey);
     widgetScript.setAttribute('data-voice-agent-id', config.retellAgentId);
-    widgetScript.setAttribute('data-title', 'TradeCall Receptionist');
-    widgetScript.setAttribute('data-bot-name', 'TradeCall Receptionist');
+    widgetScript.setAttribute('data-title', 'TradeLine Receptionist');
+    widgetScript.setAttribute('data-bot-name', 'TradeLine Receptionist');
     widgetScript.setAttribute('data-theme-color', '#ffffff');
     widgetScript.setAttribute('data-component-color', '#22d3ee');
     widgetScript.setAttribute('data-fab-text', 'Talk to our receptionist');
@@ -114,7 +114,7 @@
     var launcher = findRetellLauncher();
     if (launcher) {
       launcher.click();
-      setLiveMessage('Microphone ready. The TradeCall receptionist is opening.');
+      setLiveMessage('Microphone ready. The TradeLine receptionist is opening.');
       if (nudge) nudge.hidden = true;
     } else {
       var loadedMessage = 'Microphone ready. Use the floating “Talk to our receptionist” launcher to begin. If it is missing, check the Retell allowed-domain settings.';

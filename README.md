@@ -1,6 +1,6 @@
-# TradeCall Agency website
+# TradeLine Agency website
 
-A responsive, one-page website for TradeCall Agency. It includes the missed-call problem section, live voice-demo entry point, three-step setup explanation, consultation-led pricing card, niche positioning and a Vercel-ready static build.
+A responsive, one-page website for TradeLine Agency. It includes the missed-call problem section, live voice-demo entry point, three-step setup explanation, consultation-led pricing card, niche positioning and a Vercel-ready static build.
 
 ## Run locally
 

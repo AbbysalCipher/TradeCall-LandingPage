@@ -241,7 +241,7 @@ button { cursor: pointer; }
   .call-card__wave span, .demo-core { animation: none !important; }
 }
 
-/* TradeCall light-mode redesign: glass navigation, pale canvas and a living 3D hero. */
+/* TradeLine light-mode redesign: glass navigation, pale canvas and a living 3D hero. */
 :root {
   --ink: #111318;
   --ink-2: #252a34;

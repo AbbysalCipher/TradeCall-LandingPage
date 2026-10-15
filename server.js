@@ -67,4 +67,4 @@ const server = http.createServer((req, res) => {
 });
 
 const port = Number(process.env.PORT || 3000);
-server.listen(port, '0.0.0.0', () => console.log(`TradeCall Agency preview running at http://localhost:${port}`));
+server.listen(port, '0.0.0.0', () => console.log(`TradeLine Agency preview running at http://localhost:${port}`));
