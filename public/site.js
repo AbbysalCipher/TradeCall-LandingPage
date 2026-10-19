@@ -153,6 +153,7 @@
       '.trust-strip__inner',
       '.problem .section-heading', '.stat-card',
       '.live-copy', '.live-demo-card',
+      '.capabilities-heading', '.capability-card',
       '.how .section-heading', '.step-card', '.number-note',
       '.pricing-copy', '.pricing-card',
       '.why .section-heading', '.why-item',

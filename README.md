@@ -1,6 +1,6 @@
 # TradeLine Agency website
 
-A responsive, one-page website for TradeLine Agency. It includes the missed-call problem section, live voice-demo entry point, three-step setup explanation, consultation-led pricing card, niche positioning and a Vercel-ready static build.
+A responsive, one-page website for TradeLine Agency. It includes the missed-call problem section, live voice-demo entry point, WhatsApp notifications for incoming calls, spoken conversations in English, Malay, Chinese and Manglish, a three-step setup explanation, consultation-led pricing card, niche positioning and a Vercel-ready static build.
 
 ## Run locally
 
@@ -36,7 +36,7 @@ The project has no npm runtime dependencies. `npm run build` creates the deploym
 
 In Retell's dashboard, open **Public Keys** and add both `localhost` (for local testing) and the deployed Vercel domain to the allowed domains list. The widget may not load if a domain is missing. The embed uses Retell's official website widget script with the supplied voice agent and public key.
 
-The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
+The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The receptionist is presented as speaking and listening in English, Malay, Chinese and Manglish, and sending a WhatsApp notification to the designated business number whenever a call comes in. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
 
 ## Visual design, motion and interactions
 
