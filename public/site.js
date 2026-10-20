@@ -156,7 +156,7 @@
       '.capabilities-heading', '.capability-card',
       '.how .section-heading', '.step-card', '.number-note',
       '.pricing-copy', '.pricing-card',
-      '.why .section-heading', '.why-item',
+      '.why .section-heading', '.why-item', '.pdpa-assurance__card',
       '.final-cta__inner > *', '.footer-main > *', '.footer-bottom > *'
     ].join(',');
     var revealTargets = Array.prototype.slice.call(document.querySelectorAll(revealSelector));

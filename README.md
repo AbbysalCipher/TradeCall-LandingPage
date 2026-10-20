@@ -45,3 +45,8 @@ The page uses a bright, mostly white palette with black typography and cyan/lave
 ## Asset and key note
 
 The logo asset is copied from the supplied `logo.svg`. The hero 3D visual is CSS-rendered; the older HVAC rooftop photo remains in `public/images/` as a project asset but is no longer the hero centerpiece. No Gemini API key is stored in this project. Rotate the key that was shared in the chat before using it elsewhere.
+
+
+## Privacy / PDPA messaging
+
+The landing page includes a PDPA-conscious setup section explaining that call handling and WhatsApp notification workflows should be reviewed for personal-data handling, notices, applicable consent, security and retention. It intentionally does not promise blanket or guaranteed legal compliance: the actual position depends on the customer's configuration and business practices and should be reviewed for the specific deployment.

@@ -677,3 +677,65 @@ body { background: linear-gradient(180deg, #ffffff 0%, #fbfcff 54%, #f9fbff 100%
 @media (prefers-reduced-motion: reduce) {
   .assistant-launcher-label { transition: none; }
 }
+
+
+/* PDPA/privacy reassurance panel */
+.pdpa-assurance { padding-bottom: 82px; }
+.pdpa-assurance__card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 22px;
+  padding: 28px 30px;
+  border: 1px solid #dcecf1;
+  border-radius: 22px;
+  background: linear-gradient(112deg, rgba(244,252,255,.98) 0%, rgba(255,255,255,.96) 58%, rgba(248,247,255,.98) 100%);
+  box-shadow: 0 16px 42px rgba(43, 77, 112, .055), inset 0 1px 0 rgba(255,255,255,.98);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.pdpa-assurance__card:hover {
+  transform: translateY(-3px);
+  border-color: #c5e9f0;
+  box-shadow: 0 22px 52px rgba(43, 77, 112, .09), inset 0 1px 0 rgba(255,255,255,.98);
+}
+.pdpa-assurance__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #d2f0f5;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #f2fdff, #def7fb);
+  color: #168fa2;
+}
+.pdpa-assurance__copy { min-width: 0; }
+.pdpa-assurance__copy .eyebrow { margin: 1px 0 12px; color: #168fa2; }
+.pdpa-assurance__copy .eyebrow__line { background: #62d9e9; }
+.pdpa-assurance__copy h2 { margin: 0 0 10px; color: #171c26; font-size: clamp(21px, 2.2vw, 27px); line-height: 1.15; letter-spacing: -.045em; }
+.pdpa-assurance__copy p { max-width: 730px; margin: 0; color: #596777; font-size: 12px; line-height: 1.85; }
+.pdpa-assurance__copy small { display: block; max-width: 730px; margin-top: 9px; color: #7a8493; font-size: 10px; line-height: 1.7; }
+.pdpa-assurance__link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: #168fa2; font-size: 11px; font-weight: 750; transition: gap .2s ease, color .2s ease; }
+.pdpa-assurance__link:hover { gap: 12px; color: #08778a; }
+.pdpa-assurance__badge { display: flex; align-items: center; gap: 10px; max-width: 190px; padding: 12px 13px; border: 1px solid #e0e8f3; border-radius: 14px; background: rgba(255,255,255,.78); }
+.pdpa-assurance__badge-mark { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 10px; background: #e8faff; color: #168fa2; font-size: 15px; font-weight: 850; }
+.pdpa-assurance__badge b, .pdpa-assurance__badge small { display: block; }
+.pdpa-assurance__badge b { color: #303b4a; font-size: 10px; line-height: 1.4; }
+.pdpa-assurance__badge small { margin-top: 3px; color: #7a8493; font-size: 9px; line-height: 1.35; }
+@media (max-width: 960px) {
+  .pdpa-assurance__card { grid-template-columns: 48px minmax(0, 1fr); gap: 18px; padding: 24px; }
+  .pdpa-assurance__icon { width: 48px; height: 48px; }
+  .pdpa-assurance__badge { grid-column: 2; max-width: none; width: fit-content; }
+}
+@media (max-width: 680px) {
+  .pdpa-assurance { padding-bottom: 62px; }
+  .pdpa-assurance__card { grid-template-columns: 1fr; gap: 16px; padding: 21px 19px; border-radius: 18px; }
+  .pdpa-assurance__icon { width: 47px; height: 47px; border-radius: 14px; }
+  .pdpa-assurance__copy h2 { font-size: 23px; }
+  .pdpa-assurance__copy p { font-size: 12px; }
+  .pdpa-assurance__badge { grid-column: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdpa-assurance__card, .pdpa-assurance__link { transition: none !important; }
+  .pdpa-assurance__card:hover { transform: none; }
+}
