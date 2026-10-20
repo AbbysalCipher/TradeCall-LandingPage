@@ -40,7 +40,7 @@ The site is configured for Malaysia-wide service. Replace this positioning if th
 
 ## Visual design, motion and interactions
 
-The page uses a bright, mostly white palette with black typography and cyan/lavender highlights. The navigation is a centered, translucent glass pill. The header and footer use the supplied `logo.svg`. The hero background is built from CSS 3D-style cubes, prisms, spheres, orbital rings, soft lighting, and slowly moving reflections; it does not depend on a remote animation library. The page also includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift effects, an animated call waveform, and a softly pulsing demo visual. Motion is reduced for visitors whose device requests reduced motion.
+The page uses a bright, mostly white palette with black typography and cyan/lavender highlights. The navigation is a centered, translucent glass pill. The header and footer use the supplied `logo.svg`. The hero background is built from CSS 3D-style cubes, prisms, spheres, orbital rings, soft lighting, and slowly moving reflections; it does not depend on a remote animation library. The page also includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift effects, an animated call waveform, a softly pulsing demo visual, and a visible “Talk to our receptionist / Available 24/7” text overlay in the Retell floating launcher. The overlay leaves pointer events untouched so clicks pass through to the native Retell button. Motion is reduced for visitors whose device requests reduced motion.
 
 ## Asset and key note
 

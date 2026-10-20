@@ -617,3 +617,63 @@ body { background: linear-gradient(180deg, #ffffff 0%, #fbfcff 54%, #f9fbff 100%
   .capability-card, .whatsapp-preview { transition: none !important; }
   .capability-card:hover, .capability-card:focus-within, .capability-card:hover .whatsapp-preview { transform: none; }
 }
+
+
+/* Text overlay for the Retell floating launcher. The native launcher remains
+   underneath and receives clicks; this fills the previously blank pill area. */
+.assistant-launcher-label {
+  position: fixed;
+  z-index: 2147483647;
+  right: 20px;
+  bottom: 22px;
+  width: 148px;
+  height: 52px;
+  padding: 5px 9px 5px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  border: 1px solid rgba(226, 233, 241, .96);
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
+  background: rgba(255, 255, 255, .98);
+  color: #18202c;
+  box-shadow: 0 5px 16px rgba(36, 53, 78, .06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
+}
+.assistant-launcher-label__title {
+  display: block;
+  color: #18202c;
+  font-size: 10px;
+  font-weight: 760;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  white-space: nowrap;
+}
+.assistant-launcher-label__subtitle {
+  display: block;
+  color: #6f7b8b;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: .005em;
+  white-space: nowrap;
+}
+@media (max-width: 680px) {
+  .assistant-launcher-label {
+    right: 20px;
+    bottom: 20px;
+    width: min(148px, calc(100vw - 88px));
+    height: 50px;
+    padding-left: 6px;
+    gap: 2px;
+  }
+  .assistant-launcher-label__title { font-size: 9.4px; }
+  .assistant-launcher-label__subtitle { font-size: 8.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .assistant-launcher-label { transition: none; }
+}
