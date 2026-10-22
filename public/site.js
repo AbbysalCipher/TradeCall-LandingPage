@@ -123,6 +123,16 @@
     }
   }
 
+  function setupRetellLabel() {
+    var label = document.getElementById('retell-label');
+    if (!label) return;
+    label.addEventListener('click', function () {
+      var launcher = findRetellLauncher();
+      if (launcher) { launcher.click(); return; }
+      showGlobalMessage('The receptionist is still loading. Please try again in a moment. If it does not appear, check the Retell public key and allowed domains.');
+    });
+  }
+
   function startNudgeCycle() {
     nudge = document.getElementById('assistant-nudge');
     if (!nudge) return;
@@ -252,6 +262,7 @@
     });
     updateMissedCallCalculator();
 
+    setupRetellLabel();
     loadRetellWidget();
     startNudgeCycle();
   }

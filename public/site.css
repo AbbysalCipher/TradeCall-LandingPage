@@ -705,3 +705,10 @@ body { background: linear-gradient(180deg, #ffffff 0%, #fbfcff 54%, #f9fbff 100%
 @media (max-width: 760px) { .missed-calculator__layout { grid-template-columns: 1fr; } .missed-calculator__fields { grid-template-columns: 1fr 1fr; } .missed-calculator__result { border-radius: 20px; } }
 @media (max-width: 480px) { .missed-calculator__fields { grid-template-columns: 1fr; } .calculator-field { padding: 16px; } .missed-calculator__result { padding: 22px 19px; } }
 @media (prefers-reduced-motion: reduce) { .calculator-field { transition: none; } .calculator-field:hover { transform: none; } }
+
+/* Persistent label paired with the Retell floating launcher. */
+.retell-label { position: fixed; z-index: 48; right: 78px; bottom: 25px; display: flex; flex-direction: column; justify-content: center; gap: 3px; width: 174px; min-height: 50px; padding: 8px 12px; border: 1px solid #dcebf0; border-radius: 15px 6px 6px 15px; background: rgba(255,255,255,.94); color: #18212b; text-align: left; box-shadow: 0 8px 26px rgba(35,56,90,.15); backdrop-filter: blur(16px); cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+.retell-label:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(35,56,90,.2); }
+.retell-label__title { font-size: 11px; font-weight: 750; line-height: 1.25; white-space: nowrap; }
+.retell-label__sub { color: #758194; font-size: 9px; line-height: 1.2; }
+@media (max-width: 680px) { .retell-label { right: 72px; bottom: 17px; width: 158px; min-height: 46px; padding: 7px 10px; } .retell-label__title { font-size: 10px; } .retell-label__sub { font-size: 8px; } }
