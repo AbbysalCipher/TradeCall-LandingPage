@@ -221,6 +221,37 @@
       if (close) close.addEventListener('click', function () { globalNote.hidden = true; });
     }
 
+    var calcFields = {
+      missed: document.getElementById('calc-missed-calls'),
+      days: document.getElementById('calc-working-days'),
+      callsPerCustomer: document.getElementById('calc-calls-per-customer'),
+      jobValue: document.getElementById('calc-job-value')
+    };
+    var calcRevenue = document.getElementById('calc-monthly-revenue');
+    var calcMonthlyCalls = document.getElementById('calc-monthly-calls');
+    var calcCustomers = document.getElementById('calc-potential-customers');
+    function updateMissedCallCalculator() {
+      if (!calcRevenue || !calcMonthlyCalls || !calcCustomers) return;
+      function numeric(field, fallback) {
+        var value = field ? Number(field.value) : fallback;
+        return Number.isFinite(value) && value >= 0 ? value : 0;
+      }
+      var missed = numeric(calcFields.missed, 5);
+      var days = numeric(calcFields.days, 26);
+      var callsPerCustomer = Math.max(1, numeric(calcFields.callsPerCustomer, 10));
+      var jobValue = numeric(calcFields.jobValue, 1200);
+      var monthlyCalls = missed * days;
+      var potentialCustomers = monthlyCalls / callsPerCustomer;
+      var revenue = potentialCustomers * jobValue;
+      calcRevenue.textContent = 'RM ' + Math.round(revenue).toLocaleString('en-MY');
+      calcMonthlyCalls.textContent = Math.round(monthlyCalls).toLocaleString('en-MY');
+      calcCustomers.textContent = potentialCustomers.toLocaleString('en-MY', { maximumFractionDigits: 1 });
+    }
+    Object.keys(calcFields).forEach(function (key) {
+      if (calcFields[key]) calcFields[key].addEventListener('input', updateMissedCallCalculator);
+    });
+    updateMissedCallCalculator();
+
     loadRetellWidget();
     startNudgeCycle();
   }

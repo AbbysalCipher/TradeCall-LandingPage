@@ -28,7 +28,7 @@
   <header class="site-header">
     <a href="#top" class="brand" aria-label="TradeLine Agency home"><img src="/logo.svg" class="brand-logo" alt="" width="34" height="34"><span>TradeLine<span class="brand__agency"> Agency</span></span></a>
     <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="#problem">The problem</a><a href="#how-it-works">How it works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="https://cal.com/tan-po-keng-esfh5w/60-min" target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a></nav>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="#problem">The problem</a><a href="#missed-call-calculator">Calculator</a><a href="#how-it-works">How it works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="https://cal.com/tan-po-keng-esfh5w/60-min" target="_blank" rel="noreferrer">Book a call <span aria-hidden="true">↗</span></a></nav>
   </header>
 
   <main>
@@ -64,6 +64,29 @@
         <article class="stat-card"><span class="stat-card__top">03 <span>THE COMPETITOR PROBLEM</span></span><strong>62<span>%</span></strong><p>of unanswered callers contact a competitor instead.</p><span class="stat-card__note">The next ring could be your rival.</span></article>
         <article class="stat-card stat-card--accent"><span class="stat-card__top">04 <span>THE ANNUAL COST</span></span><strong class="stat-card__money">RM126k</strong><p>is the average estimated annual cost of missed calls for a small business.</p><span class="stat-card__note">What could one more job be worth?</span></article>
       </div><p class="stats-footnote">Statistics provided as business benchmarks; results vary by market and business.</p>
+    </section>
+
+    <section id="missed-call-calculator" class="missed-calculator section-shell section-pad">
+      <div class="section-heading section-heading--split missed-calculator__heading">
+        <div><div class="eyebrow eyebrow--dark"><span class="eyebrow__line"></span> YOUR NUMBERS, YOUR BUSINESS</div><h2>What are missed calls<br><span>costing you?</span></h2></div>
+        <p>Estimate the monthly revenue opportunity you may be missing when customers can't reach you. Adjust the numbers to reflect your own business.</p>
+      </div>
+      <div class="missed-calculator__layout">
+        <div class="missed-calculator__fields">
+          <label class="calculator-field" for="calc-missed-calls"><span>Calls missed per day</span><input id="calc-missed-calls" type="number" min="0" step="1" value="5" inputmode="numeric"><small>Calls your team can't answer while on a job or after hours.</small></label>
+          <label class="calculator-field" for="calc-working-days"><span>Working days per month</span><input id="calc-working-days" type="number" min="0" max="31" step="1" value="26" inputmode="numeric"><small>Use your typical working days, including weekends if relevant.</small></label>
+          <label class="calculator-field" for="calc-calls-per-customer"><span>Calls per paying customer</span><input id="calc-calls-per-customer" type="number" min="1" step="1" value="10" inputmode="numeric"><small>For example, 10 inbound calls for every 1 paying customer.</small></label>
+          <label class="calculator-field" for="calc-job-value"><span>Average revenue per completed job (RM)</span><input id="calc-job-value" type="number" min="0" step="50" value="1200" inputmode="decimal"><small>Use an average invoice for an aircon, HVAC, roofing or trade job.</small></label>
+        </div>
+        <div class="missed-calculator__result" aria-live="polite" aria-atomic="true">
+          <span class="calculator-result__eyebrow"><span class="live-dot"></span> YOUR ESTIMATED MONTHLY OPPORTUNITY</span>
+          <strong id="calc-monthly-revenue" class="calculator-result__amount">RM 15,600</strong>
+          <p class="calculator-result__caption">Potential revenue linked to missed calls</p>
+          <div class="calculator-result__stats"><div><span>Missed calls per month</span><b id="calc-monthly-calls">130</b></div><div><span>Potential customers</span><b id="calc-potential-customers">13</b></div></div>
+          <a class="button button--primary button--full" href="https://cal.com/tan-po-keng-esfh5w/60-min" target="_blank" rel="noreferrer">Let's reduce missed opportunities <span aria-hidden="true">→</span></a>
+          <small class="calculator-result__disclaimer">Estimate only, not guaranteed lost revenue. It assumes missed calls convert at the same rate as your usual inbound calls and that resulting jobs would be completed. Actual results vary.</small>
+        </div>
+      </div>
     </section>
 
     <section class="live-section" id="try-live"><div class="live-section__texture"></div><div class="live-section__inner section-shell">

@@ -739,3 +739,29 @@ body { background: linear-gradient(180deg, #ffffff 0%, #fbfcff 54%, #f9fbff 100%
   .pdpa-assurance__card, .pdpa-assurance__link { transition: none !important; }
   .pdpa-assurance__card:hover { transform: none; }
 }
+
+
+/* Missed-call revenue calculator */
+.missed-calculator { position: relative; }
+.missed-calculator__heading { margin-bottom: 30px; }
+.missed-calculator__layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr); gap: 24px; align-items: stretch; }
+.missed-calculator__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.calculator-field { display: flex; flex-direction: column; align-items: stretch; gap: 9px; padding: 19px; border: 1px solid #e4eaf1; border-radius: 17px; background: rgba(255,255,255,.84); box-shadow: 0 10px 30px rgba(34,53,78,.035); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.calculator-field:hover, .calculator-field:focus-within { transform: translateY(-3px); border-color: #a9e7f0; box-shadow: 0 16px 36px rgba(34,53,78,.08); }
+.calculator-field > span { color: #202a38; font-size: 12px; font-weight: 750; line-height: 1.5; }
+.calculator-field input { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #dce4ed; border-radius: 10px; background: #fff; color: #111722; font: inherit; font-size: 19px; font-weight: 750; outline: none; }
+.calculator-field input:focus { border-color: #36c7dc; box-shadow: 0 0 0 3px rgba(54,199,220,.14); }
+.calculator-field small { color: #7b8796; font-size: 10px; line-height: 1.6; }
+.missed-calculator__result { display: flex; flex-direction: column; align-items: stretch; padding: clamp(24px, 3vw, 36px); border: 1px solid rgba(255,255,255,.75); border-radius: 24px; background: radial-gradient(circle at 100% 0%, rgba(177,239,248,.46), transparent 43%), linear-gradient(145deg, #f4fcff, #fff 55%, #f5f4ff); box-shadow: 0 24px 65px rgba(49,78,110,.11); }
+.calculator-result__eyebrow { display: flex; align-items: center; gap: 8px; color: #4e6478; font-size: 9px; font-weight: 850; letter-spacing: .12em; line-height: 1.6; }
+.calculator-result__eyebrow .live-dot { width: 7px; height: 7px; }
+.calculator-result__amount { display: block; margin-top: 19px; color: #10151d; font-size: clamp(35px, 4vw, 53px); line-height: 1.05; letter-spacing: -.06em; overflow-wrap: anywhere; }
+.calculator-result__caption { margin: 9px 0 22px; color: #647386; font-size: 12px; }
+.calculator-result__stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 17px 0 20px; margin-bottom: 20px; border-top: 1px solid #e1eaf0; border-bottom: 1px solid #e1eaf0; }
+.calculator-result__stats div { display: flex; flex-direction: column; gap: 7px; }
+.calculator-result__stats span { color: #687789; font-size: 10px; }
+.calculator-result__stats b { color: #1c2937; font-size: 22px; letter-spacing: -.04em; }
+.calculator-result__disclaimer { display: block; margin-top: 14px; color: #7a8796; font-size: 9px; line-height: 1.7; }
+@media (max-width: 760px) { .missed-calculator__layout { grid-template-columns: 1fr; } .missed-calculator__fields { grid-template-columns: 1fr 1fr; } .missed-calculator__result { border-radius: 20px; } }
+@media (max-width: 480px) { .missed-calculator__fields { grid-template-columns: 1fr; } .calculator-field { padding: 16px; } .missed-calculator__result { padding: 22px 19px; } }
+@media (prefers-reduced-motion: reduce) { .calculator-field { transition: none; } .calculator-field:hover { transform: none; } }
