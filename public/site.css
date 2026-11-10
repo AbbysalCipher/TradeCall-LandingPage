@@ -742,3 +742,15 @@ body { background: linear-gradient(180deg, #ffffff 0%, #fbfcff 54%, #f9fbff 100%
 @keyframes cookie-rise { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 @media(max-width:600px) { .cookie-banner { left:14px; bottom:14px; width:calc(100vw - 28px); padding:18px; border-radius:17px; } .cookie-banner__actions { display:grid; grid-template-columns:1fr 1fr; } .cookie-button--primary { grid-column:1/-1; } .cookie-banner__foot { align-items:flex-start; flex-direction:column; gap:5px; } }
 @media(prefers-reduced-motion:reduce) { .cookie-banner { animation:none; } .cookie-button { transition:none; } .cookie-button:hover { transform:none; } }
+
+
+/* Prominent footer policy links: visible as their own row above the copyright strip. */
+.footer-policy-row { display:flex; align-items:center; justify-content:space-between; gap:22px; padding-top:19px; padding-bottom:19px; border-top:1px solid #e9edf3; border-bottom:1px solid #e9edf3; }
+.footer-policy-label { color:#7b8794; font-size:9px; font-weight:800; letter-spacing:.14em; white-space:nowrap; }
+.footer-policy-row .footer-legal { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:10px 24px; }
+.footer-policy-row .footer-legal a, .footer-policy-row .cookie-settings-link { display:inline-flex; align-items:center; gap:5px; min-height:34px; padding:4px 0; color:#344252; font-size:11px; font-weight:650; text-decoration:none; white-space:nowrap; transition:color .2s ease; }
+.footer-policy-row .footer-legal a:hover, .footer-policy-row .cookie-settings-link:hover { color:#079bb3; }
+.footer-policy-row .footer-legal a span { color:#079bb3; font-size:12px; }
+.footer-policy-row .cookie-settings-link { border:0; background:transparent; cursor:pointer; font-family:inherit; }
+.footer-bottom { padding-top:14px; padding-bottom:18px; }
+@media (max-width:680px) { .footer-policy-row { align-items:flex-start; flex-direction:column; gap:8px; padding-top:17px; padding-bottom:17px; } .footer-policy-row .footer-legal { justify-content:flex-start; gap:4px 18px; } .footer-policy-row .footer-legal a, .footer-policy-row .cookie-settings-link { min-height:36px; font-size:11px; } .footer-bottom { align-items:flex-start; } }
