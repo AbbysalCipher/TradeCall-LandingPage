@@ -1,13 +1,20 @@
 # TradeLine Agency website
 
-A responsive, one-page website for TradeLine Agency. It includes the missed-call problem section, live voice-demo entry point, WhatsApp notifications for incoming calls, spoken conversations in English, Malay, Chinese and Manglish, a three-step setup explanation, consultation-led pricing card, niche positioning and a Vercel-ready static build.
+A responsive one-page website for TradeLine Agency, built as a static site for Vercel. It includes the missed-call calculator, 14-day appointment-guarantee hero, WhatsApp notification and multilingual messaging, PDPA-conscious setup section, legal links, cookie preferences, and a custom branded browser voice assistant.
 
 ## Run locally
 
 Requirements: Node.js 18 or newer.
 
 1. Extract this folder.
-2. For local voice-demo testing, copy `.env.example` to `.env.local` and fill in your Retell public key and agent ID. Keep `.env.local` private and do not upload it to GitHub or share it.
+2. For local voice-demo testing, create `.env.local` in this folder with your existing public configuration values:
+
+   ```env
+   RETELL_PUBLIC_KEY=your_retell_public_key
+   RETELL_AGENT_ID=your_existing_voice_agent_id
+   TRADECALL_PHONE=+60102688557
+   ```
+
 3. In a terminal opened in this folder, run:
 
    ```bash
@@ -15,38 +22,64 @@ Requirements: Node.js 18 or newer.
    npm run dev
    ```
 
-4. Open **http://localhost:3000**.
+4. Open **http://localhost:3000**. Microphone access works on `localhost` and on deployed HTTPS domains.
 
-The project has no npm runtime dependencies. `npm run build` creates the deployment-ready static output in `dist/`. The current light-mode art direction uses a translucent floating navigation bar, your supplied `logo.svg`, and a CSS-rendered 3D glass-form hero scene with slow movement and iridescent highlights. The current light-mode art direction uses a translucent floating navigation bar, your supplied `logo.svg`, and a CSS-rendered 3D glass-form hero scene with slow movement and iridescent highlights.
+The project has no npm runtime dependencies. The custom voice UI loads Retell's pinned `retell-client-js-sdk` 3.0.2 browser module from the ESM CDN. `npm run build` creates the deployment-ready static output in `dist/`.
+
+## Retell custom voice assistant
+
+The website no longer embeds Retell's hosted website widget. It uses a fully custom TradeLine-branded launcher and call panel titled **TradeLine 24/7 Call Assistant**, powered by the current `RetellClient` Web SDK API:
+
+- It uses the existing `RETELL_PUBLIC_KEY` and `RETELL_AGENT_ID` environment variables.
+- A browser call is created only after a visitor clicks **Start voice call**. The microphone permission prompt therefore follows a clear user action.
+- Visitors can mute/unmute their microphone and end the call.
+- The panel handles connecting/live/ended states, common microphone permission and missing-device errors, and Retell key/domain errors.
+- The interface includes a speaking animation and repeats the existing brief welcome nudge until dismissed.
+- The interface does not collect or persist a transcript.
+
+The browser SDK uses a **Retell public key**, not a private Retell API key. Do not put a Retell private API key in frontend files. Restrict the public key in Retell's Public Keys settings to `localhost` for local testing and your deployed Vercel domain (plus any custom production domain). Calls will be rejected if the domain is not allowed. If reCAPTCHA v3 protection is enabled for that public key, a fresh reCAPTCHA token must also be integrated into the `createWebCall` request; this project does not currently implement that token flow.
+
+SDK source and current API reference: https://github.com/RetellAI/retell-client-js-sdk
 
 ## Deploy free on Vercel without using the command line
 
-1. Create a private GitHub repository in the GitHub website.
-2. Upload the project files through GitHub's **Add file → Upload files** screen. Do **not** upload `.env.local`; `.gitignore` is set to keep it out of Git.
-3. In Vercel, select **Add New → Project**, import that GitHub repository, then open the project's build settings.
+1. Create or open your existing GitHub repository.
+2. Upload the project files through GitHub's **Add file → Upload files** screen. Do **not** upload `.env.local`; `.gitignore` keeps it out of Git.
+3. In Vercel, import the repository or use the existing project.
 4. Select the **Other** framework preset. Use `npm install` for Install Command, `npm run build` for Build Command and `dist` for Output Directory. `vercel.json` already specifies these settings.
-5. In Vercel's project **Settings → Environment Variables**, add:
-   - `RETELL_PUBLIC_KEY` — the Retell public key for the website widget.
-   - `RETELL_AGENT_ID` — the existing voice agent ID.
-   - `TRADECALL_PHONE` — `+60102688557` (configured for click-to-call).
+5. In Vercel's project **Settings → Environment Variables**, keep these values configured for Production (and Preview if desired):
+   - `RETELL_PUBLIC_KEY` — your Retell public key.
+   - `RETELL_AGENT_ID` — your existing voice agent ID.
+   - `TRADECALL_PHONE` — `+60102688557`.
    - `SITE_URL` — optional; set your custom domain as `https://your-domain` for canonical Open Graph URLs. Without it, the build uses the Vercel deployment URL.
-6. Save the variables and redeploy. Open the live Vercel URL and test the demo over HTTPS.
+6. Save changes and redeploy. Open the live Vercel URL over HTTPS and test the voice assistant.
 
-## Retell setup checklist
+## Vercel Web Analytics
 
-In Retell's dashboard, open **Public Keys** and add both `localhost` (for local testing) and the deployed Vercel domain to the allowed domains list. The widget may not load if a domain is missing. The embed uses Retell's official website widget script with the supplied voice agent and public key.
+The plain-HTML Vercel Web Analytics snippet is included in `index.html`:
 
-The site is configured for Malaysia-wide service. Replace this positioning if the business serves a narrower territory. The receptionist is presented as speaking and listening in English, Malay, Chinese and Manglish, and sending a WhatsApp notification to the designated business number whenever a call comes in. The supplied phone number `+60102688557` is configured for click-to-call in the footer and microphone-error guidance. The footer now includes Terms & Conditions and Privacy Policy links that open your supplied Google Docs in a new tab.
+```html
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
 
-## Visual design, motion and interactions
+Enable Web Analytics in the Vercel project before deploying. Vercel provisions its analytics route after the next deployment.
 
-The page uses a bright, mostly white palette with black typography and cyan/lavender highlights. The navigation is a centered, translucent glass pill. The header and footer use the supplied `logo.svg`. The hero background is built from CSS 3D-style cubes, prisms, spheres, orbital rings, soft lighting, and slowly moving reflections; it does not depend on a remote animation library. The page also includes a staggered vertical fade-in on initial load, scroll-triggered section/card reveals, subtle hover lift effects, an animated call waveform, a softly pulsing demo visual, and a visible “Talk to our receptionist / Available 24/7” text overlay in the Retell floating launcher. The overlay leaves pointer events untouched so clicks pass through to the native Retell button. Motion is reduced for visitors whose device requests reduced motion.
+## Site design and features
 
-## Asset and key note
+- Mostly white light-mode styling with black typography and cyan/lavender accents.
+- Translucent floating navigation and supplied `logo.svg` branding.
+- CSS-rendered 3D glass-form hero scene, staggered page entrance, scroll reveals and hover effects.
+- Missed Call Revenue Calculator with defaults of 5 missed calls/day, 26 working days/month, 10 calls per paying customer and RM1,200 average job revenue.
+- Hero offer: 3 booked service appointments within the first 14 days for eligible Selangor contractors, or the onboarding fee is refunded. Publish clear written guarantee terms before making the offer live.
+- WhatsApp notification feature and conversations in English, Malay, Chinese and Manglish.
+- PDPA-conscious data-handling messaging, Cookie Consent banner with accept/reject/customize options, saved preferences and footer Cookie Settings control.
+- Footer links to Terms & Conditions, Privacy Policy and Cookie Policy Google Docs.
 
-The logo asset is copied from the supplied `logo.svg`. The hero 3D visual is CSS-rendered; the older HVAC rooftop photo remains in `public/images/` as a project asset but is no longer the hero centerpiece. No Gemini API key is stored in this project. Rotate the key that was shared in the chat before using it elsewhere.
+The page is positioned for Malaysian trades businesses. The privacy section does not promise blanket legal compliance; actual PDPA obligations depend on the deployment's data handling and business practices.
 
+## Configuration and security
 
-## Privacy / PDPA messaging
-
-The landing page includes a PDPA-conscious setup section explaining that call handling and WhatsApp notification workflows should be reviewed for personal-data handling, notices, applicable consent, security and retention. It intentionally does not promise blanket or guaranteed legal compliance: the actual position depends on the customer's configuration and business practices and should be reviewed for the specific deployment.
+`.env.local` is only for local development and is excluded from Git. The build injects the Retell **public** key, voice agent ID and business phone into `runtime-config.js`; these values are intentionally client-visible. Keep any private Retell API key, Gemini key or other secret off the frontend and out of the repository. Rotate any secret key previously shared in chat.
