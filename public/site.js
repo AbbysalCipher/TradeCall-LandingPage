@@ -180,8 +180,57 @@
     document.body.classList.add('motion-ready');
   }
 
+
+  function initCookieConsent() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    var storageKey = 'tradeline-cookie-preferences-v1';
+    var preferences = { necessary: true, analytics: false, marketing: false, updatedAt: null };
+    var mainActions = document.getElementById('cookie-main-actions');
+    var preferencePanel = document.getElementById('cookie-preferences');
+    var analyticsToggle = document.getElementById('cookie-analytics');
+    var marketingToggle = document.getElementById('cookie-marketing');
+    function readSaved() {
+      try {
+        var raw = window.localStorage.getItem(storageKey);
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object') return null;
+        return { necessary: true, analytics: parsed.analytics === true, marketing: parsed.marketing === true, updatedAt: parsed.updatedAt || null };
+      } catch (error) { return null; }
+    }
+    function save(next) {
+      preferences = { necessary: true, analytics: !!next.analytics, marketing: !!next.marketing, updatedAt: new Date().toISOString() };
+      try { window.localStorage.setItem(storageKey, JSON.stringify(preferences)); } catch (error) { /* Browser storage may be unavailable; keep this choice for the current page. */ }
+      banner.hidden = true;
+      mainActions.hidden = false;
+      preferencePanel.hidden = true;
+      document.dispatchEvent(new CustomEvent('tradeline:cookie-preferences-updated', { detail: preferences }));
+    }
+    function showPreferences() {
+      var saved = readSaved() || preferences;
+      analyticsToggle.checked = saved.analytics;
+      marketingToggle.checked = saved.marketing;
+      mainActions.hidden = true;
+      preferencePanel.hidden = false;
+      banner.hidden = false;
+    }
+    var saved = readSaved();
+    if (!saved) banner.hidden = false;
+    document.getElementById('cookie-accept').addEventListener('click', function () { save({ analytics: true, marketing: true }); });
+    document.getElementById('cookie-reject').addEventListener('click', function () { save({ analytics: false, marketing: false }); });
+    document.getElementById('cookie-customize').addEventListener('click', showPreferences);
+    document.getElementById('cookie-save').addEventListener('click', function () { save({ analytics: analyticsToggle.checked, marketing: marketingToggle.checked }); });
+    document.getElementById('cookie-back').addEventListener('click', function () { preferencePanel.hidden = true; mainActions.hidden = false; });
+    document.getElementById('cookie-close').addEventListener('click', function () { banner.hidden = true; });
+    var settingsButton = document.getElementById('open-cookie-settings');
+    if (settingsButton) settingsButton.addEventListener('click', showPreferences);
+    if (saved) preferences = saved;
+  }
+
   function init() {
     setupMotion();
+    initCookieConsent();
     var year = document.getElementById('year');
     if (year) year.textContent = new Date().getFullYear();
     var menuToggle = document.getElementById('menu-toggle');
